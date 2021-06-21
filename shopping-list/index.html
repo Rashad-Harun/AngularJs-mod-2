@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <title>model-2-Assignment</title>
+</head>
+<body>
+    <h1>Shopping list with check off list</h1>
+
+    <!-- First controller -1- -->
+    <div id="ctrl1" ng-controller='ShoppingListToBuy as list'>
+        <h3>Shopping List</h3>
+
+        <input type="text" ng-model='list.itemName' placeholder="item name">
+        <input type="text" ng-model='list.itemQuantity' placeholder="item quantity">
+        <button ng-click='list.addItem();'>Add to list</button>
+
+        <ol>
+            <li ng-repeat='item in list.items'>
+                Buy {{item.quantity}} of {{item.name}}.
+                <button id="remove" ng-click='list.removeItem($index)'>Remove item</button>
+                <button id="buy" ng-click='list.boughtItem($index);'>buy item</button>
+            </li>
+        </ol>
+
+        <div ng-if='list.itemMessage'>
+            <h2> {{list.itemMessage}} 🛒</h2>
+        </div>
+    
+    </div>  <!-- End of controller one 1 -->
+
+
+
+
+    <!-- Second controller -2- -->
+    <div id="ctrl2" ng-controller='ShoppingListCheckoff as checkoff'>
+        <h3> Bought items list</h3>
+        
+        <ol>
+            <li ng-repeat='item in checkoff.boughtItems'>
+                you bought {{item.quantity}} of {{item.name}}
+                <button id="checkoffRemove" ng-click='checkoff.removeItem();'>Remove item </button>
+            </li>
+        </ol>
+
+
+        <div ng-if='checkoff.itemMessage'>
+            <h2>{{checkoff.itemMessage}}</h2>
+        </div>
+
+    </div> <!-- End of controller two 2-->
+
+
+    
+</body>
+</html>

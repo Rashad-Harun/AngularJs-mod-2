@@ -1,0 +1,54 @@
+
+body {
+    font-size: 18px;
+    background-image: url('/img/pic2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+#ctrl1, #ctrl2{
+    float: left;
+}
+
+#ctrl2{
+    margin-left: 200px;
+}
+
+button{
+    margin: 5px 10px 5px 10px;
+    border: 1px;
+    cursor: pointer;
+    background-color: springgreen;
+}
+
+#buy{
+    background-color: springgreen;
+    
+}
+
+#remove{
+    background-color: orangered;
+    color: white;
+}
+
+#checkoffRemove:hover{
+    background-color: red;
+    color: white;
+}
+
+li{
+    font-weight: bold;
+    color: darkslategray;
+}
+
+input{
+    background-color: whitesmoke;
+    border: 0;
+    border-radius: 5px 5px;
+    width: 200px;
+}
+
+input:hover{
+    background-color: lightgreen;
+}
