@@ -20,13 +20,13 @@
 
         list.itemName = '';
         list.itemQuantity = '';
-        list.itemMessage = 'Add item to the List ';
+        // list.itemMessage = 'Add item to the List 🛒';
 
         list.addItem = function(){
             shoppingList.addItem(list.itemName, list.itemQuantity)
             list.itemName = '';
             list.itemQuantity = '';
-            list.itemMessage = '';
+            // list.itemMessage = '';
         };
 
         list.removeItem = function(itemIndex){
@@ -37,7 +37,15 @@
             shoppingList.boughtItem(itemIndex)
         };
 
+        
         list.items = shoppingList.getItems();
+        
+        list.$doCheck = function(){
+            if(list.items.length > 0){
+                list.itemMessage = '';
+            }
+            else{list.itemMessage = 'Add item to the List 🛒';}
+        }
     };
 
 
@@ -46,10 +54,24 @@
     ShoppingListCheckoff.$inject = ['ShoppingListService']
     function ShoppingListCheckoff(ShoppingListService){
         let list = this;
-        let shoppingList = ShoppingListService
+        let shoppingList = ShoppingListService;
+
+        
 
         list.boughtItems = shoppingList.getBoughtItems();
         
+        
+
+        list.$doCheck = function(){
+            if(list.boughtItems.length > 0){
+                list.boughtMessage = '';
+            }
+            else{
+                list.boughtMessage = 'Nothing bought yet ⭕';
+            }
+        }
+
+
         list.removeItem = function(itemIndex){
             shoppingList.removeBoughtItems(itemIndex)
         };
@@ -62,6 +84,14 @@
         let service = this;
         let items = [];
         let boughtItems = [];
+
+
+        items.push({name: 'Orange', quantity: '3 kilos'})
+        items.push({name: 'Apple', quantity: '1 kilos'})
+        items.push({name: 'Banana', quantity: '5 kilos'})
+        items.push({name: 'Kiwi', quantity: '0.5 kilos'})
+        items.push({name: 'Milk', quantity: '1 bottle'})
+        items.push({name: 'Honey', quantity: '1 kilo'})
 
         // function to add items to the list items
         service.addItem = function(itemName, itemQuantity){
