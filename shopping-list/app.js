@@ -44,7 +44,9 @@
             if(list.items.length > 0){
                 list.itemMessage = '';
             }
-            else{list.itemMessage = 'Add item to the List 🛒';}
+            else{
+                list.itemMessage = 'Everything is bought, Add new item to the List 🛒';
+            }
         }
     };
 
